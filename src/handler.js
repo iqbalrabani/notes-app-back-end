@@ -32,8 +32,8 @@ const addNoteHandler = (request, h) => {
         status: 'fail',
         message: 'Catatan gagal ditambahkan',
     });
-    response.conde(500);
-    return respone;
+    response.code(500);
+    return response;
 };
 
 const getAllNotesHandler = () => ({
@@ -80,20 +80,20 @@ const editNoteByIdHandler = (request, h) => {
             updatedAt,
         };
 
-        const respone = h.respone({
+        const response = h.response({
             status: 'success',
             message: 'Catatan berhasil diperbarui',
         });
-        respone.conde(200);
-        return respone;
+        response.code(200);
+        return response;
     }
 
-    const respone = h.respone({
+    const response = h.response({
         status: 'fail',
         message: 'Gagal memperbarui catatan. Id tidak ditemukan',
     });
     response.code(404);
-    return respone;
+    return response;
 };
 
 const deleteNoteByIdHandler = (request, h) => {
